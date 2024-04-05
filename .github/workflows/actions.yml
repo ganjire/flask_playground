@@ -23,12 +23,12 @@ jobs:
           
       - name: scrape imdb data and upload data to mongodb
         working-directory: model
-        run: python ./app.py
+        run: python app.py
 
       - name: build model
         working-directory: model
-        run: python ./app.py -u "${{secrets.MONGODB_URI}}"
+        run: python app.py -u "${{secrets.MONGODB_URI}}"
 
       - name: upload model
         working-directory: model
-        run: python ./save.py -c "${{secrets.AZURE_STORAGE_CONNECTION_STRING}}"
+        run: python save.py -c "${{secrets.AZURE_STORAGE_CONNECTION_STRING}}"
