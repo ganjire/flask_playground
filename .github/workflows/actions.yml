@@ -21,11 +21,8 @@ jobs:
       - name: install python packages
         run: pip install -r requirements.txt
           
-      - name: scrape imdb data and upload data to mongodb
-        working-directory: model
-        run: python app.py
 
-      - name: build model
+      - name: scrape imdb data, upload data to mongodb and build model
         working-directory: model
         run: python app.py -u "${{secrets.MONGODB_URI}}"
 
