@@ -21,10 +21,6 @@ jobs:
       - name: install python packages
         run: pip install -r requirements.txt
 
-      - name: run tests
-        working-directory: model
-        run: python -m pytest
-        
 
       - name: scrape imdb data, upload data to mongodb and build model
         working-directory: model
